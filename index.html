@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="index2.css">
+    <link rel="shortcut icon" href="paw.png" type="image/x-icon">
+    <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+    <script>
+        window.formbutton = window.formbutton || function(){(formbutton.q=formbutton.q||[]).push(arguments)};
+        formbutton("create", {
+            action: "https://formspree.io/f/mjvnnooz",
+            title: "How can we help?",
+            fields: [
+                { type: "email", label: "Email:", name: "email", required: true, placeholder: "your@email.com" },
+                { type: "textarea", label: "Message:", name: "message", placeholder: "What's on your mind?" },
+                { type: "submit" }
+            ],
+            styles: {
+                title: { backgroundColor: "gray" },
+                button: { backgroundColor: "gray" }
+            }
+        });
+    </script>
+</head>
+<body>
+    <header class="navigation">
+        <h1 class="logo"><img src="wild-animals.png" width="50" height="50" alt="Logo"></h1>
+        <nav class="navlinks">
+            <a href="#">Home</a>
+            <a href="about.html">About</a> 
+            <a href="#">Services</a> 
+            <a href="#">Contact Us</a>
+            <button>Sign Up</button>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Mauritius</h1>
+                <p>Fulfilling Client Needs</p>
+                <button>Call Now</button>
+            </div>
+        </section>
+
+        <section class="search">
+            <div class="container">
+                <input type="search" placeholder="Search Destinations" aria-label="Search Destinations">
+                <button type="submit">Search</button>
+            </div>
+        </section>
+        
+        <section class="destination">
+            <h1>Top Destinations</h1>
+            <div class="row">
+                <div class="column">
+                    <img src="Manyasi zime kauka.jpg" alt="Manyasi">
+                    <img src="Massai.jpg" alt="Massai">
+                </div>
+                <div class="column">
+                    <img src="Greek.jpg" alt="Greek">
+                    <img src="Mutu juu ya cliff.jpg" alt="Cliff">
+                </div>
+                <div class="column">
+                    <img src="Kilimanjaro (1).jpg" alt="Kilimanjaro">
+                    <img src="Ngamia (1).jpg" alt="Ngamia">
+                </div>
+            </div>
+        </section>
+
+        <section class="holiday-cards">
+            <h1>Holiday Destinations</h1>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="Default_Generate_for_me_a_picture_for_amboseli_national_park_i_3.jpg" alt="Amboseli, Kenya">
+                    <div class="card-content">
+                        <h2>Amboseli, Kenya</h2>
+                        <p>$1650</p>
+                        <button>Book Now</button>
+                    </div>
+                </div>
+                <div class="card">
+                  <img src="Default_Generate_for_me_a_picture_for_amboseli_national_park_i_3.jpg" alt="Amboseli, Kenya">
+                  <div class="card-content">
+                      <h2>Amboseli, Kenya</h2>
+                      <p>$1650</p>
+                      <button>Book Now</button>
+                  </div>
+              </div>
+              <div class="card">
+                <img src="Default_Generate_for_me_a_picture_for_amboseli_national_park_i_3.jpg" alt="Amboseli, Kenya">
+                <div class="card-content">
+                    <h2>Amboseli, Kenya</h2>
+                    <p>$1650</p>
+                    <button>Book Now</button>
+                </div>
+            </div></div></section>8
+                <!-- Repeat for other cards -->
+            </div>
+        </section>
+    </main>
+</body>
+</html>
