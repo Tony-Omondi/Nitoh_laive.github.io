@@ -1,0 +1,224 @@
+body {
+    background-color: hsl(221, 85%, 21%);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    color: #fff;
+}
+
+header.navigation {
+    width: 100%;
+    background-color: #333;
+    padding: 1em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo img {
+    margin-left: 20px;
+}
+
+nav.navlinks {
+    margin-right: 20px;
+}
+
+nav.navlinks a {
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+nav.navlinks a:hover {
+    background: #575757;
+}
+
+nav.navlinks button {
+    background: #007BFF;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+nav.navlinks button:hover {
+    background: #0056b3;
+}
+
+.hero {
+    position: relative;
+    background: url('pexels-dominikruhl-7425281.jpg') no-repeat center center/cover;
+    height: 80vh;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 600px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.hero button {
+    background: #007BFF;
+    border: none;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.hero button:hover {
+    background: #0056b3;
+}
+
+.search {
+    background: #fff;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.search .container {
+    display: flex;
+    justify-content: center;
+}
+
+.search input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+}
+
+.search button {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background 0.3s ease;
+}
+
+.search button:hover {
+    background: #0056b3;
+}
+
+.destination {
+    padding: 40px 0;
+}
+
+.destination h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 30%;
+    max-width: 30%;
+    padding: 10px;
+}
+
+.column img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.column img:hover {
+    transform: scale(1.05);
+}
+
+.holiday-cards {
+    padding: 40px 0;
+    background: #333;
+}
+
+.holiday-cards h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 30%;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.card-content h2 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.card-content p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.card-content button {
+    background: #007BFF;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.card-content button:hover {
+    background: #0056b3;
+}
