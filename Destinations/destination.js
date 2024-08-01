@@ -1,3 +1,7 @@
+// import { Timestamp } from "firebase/firestore/lite";
+let placeName = "";
+let placeDescription = "";
+
 document.addEventListener("DOMContentLoaded", () => {
   const bookButtons = document.querySelectorAll(".book-now");
 
@@ -24,12 +28,15 @@ function openBookingPage(placeName, placeDescription) {
           <label for="days">Number of Stay Days:</label>
           <input type="number" id="days" name="days" min="1" required>
           <label for="meals">Full Board Meals:</label>
+
           <select id="meals" name="meals" required>
               <option value="yes">Yes</option>
               <option value="no">No</option>
           </select>
+
           <label for="additional">Additional Requests:</label>
           <textarea id="additional" name="additional"></textarea>
+
           <button type="submit" class="intaSendPayButton">Confirm Booking</button>
       </form>
       <button class="btn back-btn">Back</button>
@@ -57,6 +64,9 @@ function handleBookingFormSubmit(event) {
     days: formData.get("days"),
     meals: formData.get("meals"),
     additional: formData.get("additional"),
+    placeName: placeName,
+    placeDescription: placeDescription,
+    // time: Timestamp.now(),
   };
 
   // Proceed to IntaSend Payment
@@ -80,6 +90,7 @@ function triggerIntaSendPayment(bookingDetails) {
   // Attach event listeners
   intasend.on("COMPLETE", (results) => {
     console.log("Payment successful", results);
+    saveBookingToFirebase(bookingDetails);
     // Handle successful payment (e.g., save booking details to your database)
   });
   intasend.on("FAILED", (results) => {
@@ -91,23 +102,45 @@ function triggerIntaSendPayment(bookingDetails) {
   });
 
   // Update the button attributes
-  paymentButton.dataset.amount = 10; // Replace with actual amount based on bookingDetails
+  paymentButton.dataset.amount = calculateBookingAmount(bookingDetails); // Replace with actual amount based on bookingDetails
   paymentButton.dataset.currency = "KES";
 
   // Simulate button click
   paymentButton.click();
 }
-function saveBookingToFirebase(bookingDetails) {
-  const userId = "";
-  const dbRefb = ref(database, "booking/" + userId);
-  set (dbRefb, {
-    ...bokingDetails
 
-  })
-  .then(() => {
-    console.log("Booking saved successfully!");
-  })
-  .catch((error) => {
-    console.error("Error saving booking: ", error);
-  });
+function calculateBookingAmount(bookingDetails) {
+  const price_per_night = 2500; 
+  const mealPrice = bookingDetails.meals === "yes" ? 500 : 0; 
+  return (
+    (price_per_night + mealPrice) *
+    bookingDetails.visitors *
+    bookingDetails.days
+  );
+}
+
+function saveBookingToFirebase(bookingDetails) {
+  const user = firebase.auth().currentUser;
+
+  if (user) {
+    const userId = user.uid; // User's Firebase UID
+    const userEmail = user.email; // User's email
+
+    const dbRef = ref(database, "bookings/" + userId + "/" + Date.now()); // Create a new unique path for each booking
+
+    set(dbRef, {
+      userId: userId,
+      userEmail: userEmail,
+      ...bookingDetails,
+      timestamp: Timestamp.now(), // Add the current timestamp
+    })
+      .then(() => {
+        console.log("Booking saved successfully");
+      })
+      .catch((error) => {
+        console.error("Error saving booking: ", error);
+      });
+  } else {
+    console.error("No user is signed in.");
+  }
 }
